@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 import { sanityIntegration as sanity } from '@sanity/astro';
 import react from '@astrojs/react';
 import { loadEnv } from 'vite';
-import vercel from "@astrojs/vercel/serverless";
-import tailwind from "@astrojs/tailwind";
+import vercel from '@astrojs/vercel/serverless';
+import tailwind from '@astrojs/tailwind';
 
 
 const {
