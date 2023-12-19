@@ -1,5 +1,5 @@
-import { contentBlock } from './contentBlock';
+import contentBlockSchema from './contentBlock';
 
 export const schemaTypes = [
-    contentBlock,
+    contentBlockSchema,
 ];
