@@ -11,6 +11,7 @@ interface ContentBlock {
   _rev: string;
   name: string;
   title: string;
+  text: Text;
   slug: Slug;
 }
 
@@ -22,7 +23,7 @@ async function getContentBlocks() {
   }`);
 }
 
-export { getContentBlocks };
+export default getContentBlocks ;
 export type { ContentBlock };
 
 

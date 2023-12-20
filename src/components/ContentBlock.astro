@@ -1,9 +1,26 @@
-<!-- ---
+---
 import type { ContentBlock } from '../lib/getContentBlock';
-import { getContentBlocks } from '../lib/getContentBlock';
-
-const contentBlocks = await getContentBlocks;
-
---- -->
+import  getContentBlocks from '../lib/getContentBlock';
 
 
+// export async function getStaticProps() {
+//   const contblocks = await getContentBlocks();
+//   return {
+//     props: {
+//       contblocks,
+//     },
+//   };
+// }
+
+let block = await getContentBlocks();
+
+let firstblock = block[0];
+let secondblock = block[1];
+
+---
+
+
+<h1> { firstblock.title } </h1>
+  <p> { firstblock.text }</p>
+<h1> { secondblock.title }</h1>
+  <p> { firstblock.text }</p>

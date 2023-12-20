@@ -1,0 +1,47 @@
+---
+import imageUrlBuilder from '@sanity/image-url';
+import { sanityClient } from 'sanity:client';
+
+
+const builder = imageUrlBuilder(sanityClient)
+
+const {node} = Astro.props
+const { width = 960 } = Astro.props
+
+// See https://www.sanity.io/docs/presenting-images for general documentation on
+// presenting images, and https://www.sanity.io/docs/image-url for specifics on
+// this builder API
+const image = node && builder
+  .image(node)
+  .width(width)
+  .fit('max')
+  .auto('format')
+---
+
+{image && <img src={image.url()} alt={node.alt || ""} title={node.alt} />}
+
+
+
+
+
+
+
+
+
+<!-- ---
+import { imageUrlFor } from '../lib/imageUrl';
+
+
+type Asset = Parameters<typeof imageUrlFor>[0];
+
+export interface Props {
+  asset: Asset;
+  alt: string;
+}
+
+const { asset, alt } = Astro.props;
+const image = imageUrlFor(asset);
+---
+
+<img src!={image} alt={alt} />
+ADDED THE '!' TO RESOLVE SRC CHECKING -->
