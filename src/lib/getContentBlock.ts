@@ -1,6 +1,6 @@
 import { sanityClient } from 'sanity:client';
 import groq from 'groq';
-import type { Slug } from '@sanity/types';
+import type { Image, Slug, TypedObject } from '@sanity/types';
 
 
 interface ContentBlock {
@@ -11,7 +11,8 @@ interface ContentBlock {
   _rev: string;
   name: string;
   title: string;
-  text: Text;
+  content: TypedObject;
+  image: Image;
   slug: Slug;
 }
 
@@ -23,22 +24,5 @@ async function getContentBlocks() {
   }`);
 }
 
-export default getContentBlocks ;
+export default getContentBlocks;
 export type { ContentBlock };
-
-
-
-
-
-
-// export async function getContentBlocks() {
-//   const query = groq`*[_type == 'contentBlock' && defined(slug.current)] | order(_createdAt desc)`;
-//   const contentBlocks = await sanityClient.fetch(query);
-//   return contentBlocks;
-// }
-
-// export async function getContentBlock( slug: string ) {
-//     const query = groq`*[_type == 'contentBlock' && slug.current == $slug][0]`;
-//     const contentBlock = await sanityClient.fetch(query, { slug });
-//     return contentBlock;
-//   }

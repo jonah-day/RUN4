@@ -1,6 +1,7 @@
 ---
 import type { ContentBlock } from '../lib/getContentBlock';
 import  getContentBlocks from '../lib/getContentBlock';
+import PortableText from './PortableText.astro';
 
 
 // export async function getStaticProps() {
@@ -12,15 +13,11 @@ import  getContentBlocks from '../lib/getContentBlock';
 //   };
 // }
 
-let block = await getContentBlocks();
+let blockSection = await getContentBlocks();
 
-let firstblock = block[0];
-let secondblock = block[1];
+let first = blockSection[0];
 
 ---
 
-
-<h1> { firstblock.title } </h1>
-  <p> { firstblock.text }</p>
-<h1> { secondblock.title }</h1>
-  <p> { firstblock.text }</p>
+<h1> { first.title } </h1>
+<PortableText value={first.content}></PortableText>
