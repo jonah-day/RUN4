@@ -3,21 +3,7 @@ import type { ContentBlock } from '../lib/getContentBlock';
 import  getContentBlocks from '../lib/getContentBlock';
 import PortableText from './PortableText.astro';
 
-
-// export async function getStaticProps() {
-//   const contblocks = await getContentBlocks();
-//   return {
-//     props: {
-//       contblocks,
-//     },
-//   };
-// }
-
-let blockSection = await getContentBlocks();
-
-let first = blockSection[0];
+const about = await getContentBlocks();
 
 ---
 
-<h1> { first.title } </h1>
-<PortableText value={first.content}></PortableText>

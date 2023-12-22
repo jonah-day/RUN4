@@ -1,0 +1,12 @@
+---
+import type { BlogPost } from '../lib/getBlogPost';
+import  getBlogPost from '../lib/getBlogPost';
+import PortableText from './PortableText.astro';
+
+export interface Props {
+    blogPost: BlogPost;
+}
+
+const { blogPost } = Astro.props;
+
+---

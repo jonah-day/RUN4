@@ -3,24 +3,28 @@ import groq from 'groq';
 import type { Image, Slug, TypedObject } from '@sanity/types';
 
 
-interface ContentBlock {
+interface BlogPost {
   _id: string;
-  _type: 'contentBlock';
+  _type: 'blogPost';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
   name: string;
   title: string;
+  date: string;
+  excerpt: string;
   content: TypedObject;
   image: Image;
   slug: Slug;
 }
 
-async function getContentBlocks() {
 
-  return await sanityClient.fetch<ContentBlock[]>(groq`
-  *[_type == "contentBlock"] {
+async function getBlogPosts() {
+
+  return await sanityClient.fetch<BlogPost[]>(groq`
+  *[_type == "blogPost"] {
     ...,
+    "image": image { ..., asset-> },
     "content": content[] {
       ...,
       _type == "image" => {
@@ -33,5 +37,5 @@ async function getContentBlocks() {
 }
 
 
-export default getContentBlocks;
-export type { ContentBlock };
+export default getBlogPosts;
+export type { BlogPost };

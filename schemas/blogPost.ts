@@ -1,9 +1,9 @@
 import {defineField, defineType} from 'sanity';
 import { ComposeIcon } from '@sanity/icons';
 
-const postSchema = defineType({
-  name: 'post',
-  title: 'Post',
+const blogPostSchema = defineType({
+  name: 'blogPost',
+  title: 'Blog Post',
   type: 'document',
   icon: ComposeIcon,
   fields: [
@@ -35,6 +35,13 @@ const postSchema = defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alternative text',
+          type: 'string',
+        },
+      ],
     }),
     defineField({
       name: 'body',
@@ -55,4 +62,4 @@ const postSchema = defineType({
   },
 })
 
-export default postSchema;
+export default blogPostSchema;

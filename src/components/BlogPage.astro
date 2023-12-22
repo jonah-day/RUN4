@@ -1,0 +1,41 @@
+---
+import  getBlogPosts from '../lib/getBlogPost';
+import SanityImage from './SanityImage.astro';
+import PortableText from './PortableText.astro';
+
+
+const blogPosts = await getBlogPosts();
+
+---
+
+<div>
+    {
+      blogPosts.map((blogPost, i) => (
+          <a
+            href={`/blog/${blogPost.slug.current}`}
+            aria-label={`Show ${blogPost.title} blog post`}
+          >hello
+        </a>
+            <div
+              {
+                i === blogPosts.length - 1
+              }
+            >
+            </div>
+                <SanityImage
+                  image={blogPost.image}
+                />
+
+              <h2>
+                {blogPost.title}
+              </h2>
+              <p>
+                {blogPost.excerpt}
+              </p>
+              <p>
+                  {blogPost.date}
+              </p>
+      ))
+    }
+  </div>
+  <!-- <PortableText> {blogPosts[1].content}</PortableText> -->

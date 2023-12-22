@@ -19,29 +19,3 @@ const image = node && builder
 ---
 
 {image && <img src={image.url()} alt={node.alt || ""} title={node.alt} />}
-
-
-
-
-
-
-
-
-
-<!-- ---
-import { imageUrlFor } from '../lib/imageUrl';
-
-
-type Asset = Parameters<typeof imageUrlFor>[0];
-
-export interface Props {
-  asset: Asset;
-  alt: string;
-}
-
-const { asset, alt } = Astro.props;
-const image = imageUrlFor(asset);
----
-
-<img src!={image} alt={alt} />
-ADDED THE '!' TO RESOLVE SRC CHECKING -->

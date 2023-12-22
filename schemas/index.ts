@@ -1,10 +1,10 @@
-import baseContentBlockSchema from './BaseContentBlock'
-import postSchema from './post';
+import baseContentBlockSchema from './baseContentBlock';
+import blogPostSchema from './blogPost';
 import contentBlockSchema from './contentBlock';
 
 export const schemaTypes = [
     baseContentBlockSchema,
-    postSchema,
+    blogPostSchema,
     contentBlockSchema,
 
 ];
