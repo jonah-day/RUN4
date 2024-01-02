@@ -29,7 +29,8 @@ export default defineConfig({
     useCdn: false
   }),
   react(),
-  tailwind()],
+  tailwind()
+  ],
   output: 'hybrid',
   adapter: vercel()
 });
